@@ -6,6 +6,24 @@ Our application will consist of three stateless microservices:
 2.  **`api-service`**: An intermediate API that calls the `db-mock` service and then returns a combined message.
 3.  **`frontend`**: A simple web server that serves an HTML page. This page will contain JavaScript that makes an HTTP request to the `api-service` and displays the result.
 
+## Create a repo with folder structure:
+
+├── frontend/
+│   ├── Dockerfile
+│   └── app source code
+├── api/
+│   ├── Dockerfile
+│   └── app source code
+├── k8s/
+│   ├── namespace.yaml
+│   ├── frontend.yaml
+│   ├── api.yaml
+│   └── configmap.yaml
+└── .github/
+    └── workflows/
+        └── ci-cd.yaml
+
+
 ---
 
 ### **Step 1: Application Code & Dockerfiles**
