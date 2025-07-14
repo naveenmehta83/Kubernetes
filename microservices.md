@@ -6,22 +6,27 @@ Our application will consist of three stateless microservices:
 2.  **`api-service`**: An intermediate API that calls the `db-mock` service and then returns a combined message.
 3.  **`frontend`**: A simple web server that serves an HTML page. This page will contain JavaScript that makes an HTTP request to the `api-service` and displays the result.
 
-## Create a repo with folder structure:
+## Project structure:
 
+.
+├── db-mock/
+│   ├── db_mock_app.py
+│   ├── Dockerfile.db
+│   └── test_db_mock.py
+├── api-service/
+│   ├── api_app.py
+│   ├── Dockerfile.api
+│   ├── requirements.txt # For 'requests' and 'flask'
+│   └── test_api_service.py
 ├── frontend/
-│   ├── Dockerfile
-│   └── app source code
-├── api/
-│   ├── Dockerfile
-│   └── app source code
-├── k8s/
-│   ├── namespace.yaml
-│   ├── frontend.yaml
-│   ├── api.yaml
-│   └── configmap.yaml
-└── .github/
-    └── workflows/
-        └── ci-cd.yaml
+│   ├── frontend_app.py
+│   ├── Dockerfile.frontend
+│   ├── requirements.txt # For 'flask'
+│   └── test_frontend.py
+└── k8s-manifests/
+    ├── 00-namespace.yaml
+    ├── ... (other manifests as per previous guide)
+    └── 08-frontend-service.yaml
 
 
 ---
